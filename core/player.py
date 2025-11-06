@@ -11,6 +11,10 @@ class Player:
         self.armor_rating = random.randrange(5, 16)
         self.profession = random.choice(["warrior", "healer"])
 
+    def set_hp(self):
+        if self.profession == "healer":
+            self.hp += 10
+
     def speak(self):
         print(f"Hi im {self.name} the {self.profession}")
 
@@ -21,3 +25,7 @@ class Player:
             "damage" : (game.Game.roll_dice(6) + self.power)
         }
         return player_attack
+
+
+    def chek_hp(self):
+        return self.hp <= 0

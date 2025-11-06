@@ -24,5 +24,7 @@ class Goblin(monster.Monster):
         }
         return player_attack
 
-    def run_away(self):
-        pass
+    def chek_hp(self):
+        return self.hp <= 0
+
+

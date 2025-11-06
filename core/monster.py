@@ -14,3 +14,7 @@ class Monster(ABC):
         @abstractmethod
         def attack():
             pass
+
+        @abstractmethod
+        def chek_hp():
+            pass

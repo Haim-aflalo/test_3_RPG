@@ -23,3 +23,6 @@ class Orc(monster.Monster):
             "damage": (game.Game.roll_dice(6) + self.power)
         }
         return player_attack
+
+    def chek_hp(self):
+        return self.hp <= 0

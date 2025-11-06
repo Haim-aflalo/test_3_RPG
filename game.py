@@ -1,4 +1,7 @@
 import random
+import core.goblin
+import core.orc
+import game_utils
 
 
 class Game:
@@ -18,7 +21,9 @@ class Game:
                 return choice
 
     @staticmethod
-    def choose_random_monster(orc, goblin):
+    def choose_random_monster():
+        orc  = core.orc.Orc()
+        goblin = core.goblin.Goblin()
         monsters = [orc, goblin]
         game_monster = random.choice(monsters)
         return game_monster
@@ -28,20 +33,10 @@ class Game:
         return random.randint(1, sides)
 
     @staticmethod
-    def chek_first(player,monster):
-        roll_p =  player.attack()["round"]
-        print(roll_p)
-        roll_m = monster.attack()["round"]
-        print(roll_m)
-        if roll_m > roll_p:
-            return monster
-        if roll_m < roll_p:
-            return player
-        else:
-            return player
-
-    # @staticmethod
-    # def battle(player,monster):
-    #     first = Game.chek_first(player,monster)
+    def battle(first,player,monster):
+            if first:
+                game_utils.Utils.player_shot(first,player,monster)
+            if not first:
+                game_utils.Utils.monster_shot(first,player,monster)
 
 
